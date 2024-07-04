@@ -796,7 +796,7 @@ export interface PostsTranslations {
 export interface Projects {
   built_with?: string[]
   client?: string
-  content?: string
+  // content?: string
   cost?: string
   date_created?: string
   date_updated?: string
@@ -808,10 +808,20 @@ export interface Projects {
   slug?: string
   sort?: number
   status: string
-  summary?: string
-  title?: string
+  // summary?: string
+  // title?: string
+  translations?: ProjectsTranslations[]
   user_created?: string | DirectusUsers
   user_updated?: string | DirectusUsers
+}
+
+export interface ProjectsTranslations {
+  content: string
+  id: number
+  languages_code?: string | Languages
+  projects_id?: string | Projects
+  summary?: string
+  title: string
 }
 
 export interface ProjectsFiles {

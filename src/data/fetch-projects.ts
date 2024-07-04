@@ -10,20 +10,38 @@ const fetchProjectsData = async ({ locale }: PageContextServer) => {
       filter: {
         status: { _eq: 'published' },
       },
-      fields: ['*'],
+      deep: {
+        translations: {
+          _filter: {
+            languages_code: {
+              _eq: locale,
+            },
+          },
+        },
+      },      
+      fields: ['*', { translations: ['*'] }],
     })
   )
+
   return projects
 }
 
 const fetchProjectData = async ({ locale, slug }: PageContextServer) => {
   const projects = await directusApi.request(
     readItems('projects', {
-      filter: { slug: { _eq: slug } },
       limit: 1,
-      fields: ['*', { gallery: [{ directus_files_id: ['*'] }] }],
+      filter: { slug: { _eq: slug } },
+      deep: {
+        translations: {
+          _filter: {
+            languages_code: {
+              _eq: locale,
+            },
+          },
+        },
+      },        
+      fields: ['*', { gallery: [{ directus_files_id: ['*'] }] }, { translations: ['*'] }],
     })
   )
-
   return projects[0]
 }

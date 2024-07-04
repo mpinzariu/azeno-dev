@@ -86,8 +86,9 @@ const fetchGlobals = async function name(lang: string) {
           {
             translations: [
               '*',
-              { project_setting: ['*'] },
               { blog_setting: ['*'] },
+              { project_setting: ['*'] },
+              { service_setting: ['*'] },
             ],
           },
         ],

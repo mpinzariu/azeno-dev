@@ -79,7 +79,7 @@ export default async function PageRoute({ params }: Props) {
                   <div className='p-8'>
                     <TypographyTitle>{project.client}</TypographyTitle>
                     <TypographyHeadline className='text-primary'>
-                      {project.title}
+                      {project.translations && project.translations[0].title || ''}
                     </TypographyHeadline>
                     <div className='mt-2 flex flex-auto'>
                       {project.built_with?.map((item, itemIdx) => (

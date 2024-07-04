@@ -44,8 +44,6 @@ export default async function Navbar({
 }: NavBarProps) {
   const { t } = await getTranslations({ locale: lang })
 
-  console.log("navigation: ", navigation)
-
   return (
     <header>
       <div className='navbar mx-auto max-w-7xl bg-base-100'>

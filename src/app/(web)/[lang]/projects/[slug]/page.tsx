@@ -14,6 +14,7 @@ export default async function PageRoute({ params }: { params: any }) {
     slug: params.slug,
   })
 
+  console.log("project: ", project)
   const { t } = await getTranslations({ locale: params.lang })
 
   return (
@@ -28,15 +29,15 @@ export default async function PageRoute({ params }: { params: any }) {
         />
         <div className='absolute inset-0 bg-base-300 opacity-50' />
         <div className='relative mx-auto max-w-4xl overflow-hidden rounded-bl-3xl rounded-tr-3xl bg-base-100 bg-opacity-50 p-8'>
-          <TypographyHeadline content={project.title} size='xl' />
-          <p className='mt-4 font-mono md:text-lg'>{project.summary}</p>
+          <TypographyHeadline content={project.translations && project.translations[0].title} size='xl' />
+          <p className='mt-4 font-mono md:text-lg'>{project.translations && project.translations[0].summary}</p>
         </div>
       </div>
       <main className='relative'>
         <PageContainer>
           <main className='p-4'>
             <article className='mx-auto w-full max-w-4xl'>
-              <TypographyProse content={project.content} />
+              <TypographyProse content={project.translations && project.translations[0].content || ''} />
             </article>
 
             {project.gallery && project.gallery.length > 0 && (
