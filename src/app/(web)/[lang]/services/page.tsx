@@ -40,21 +40,21 @@ export default async function PageRoute({ params }: Props) {
     <PageContainer>
       <header className='border-b-2 border-base-300 pb-6 '>
         <TypographyTitle>
-          {globalData.project_setting.title || 'Nextus Projects'}
+          {globalData.project_setting.title || 'Nextus Services'}
         </TypographyTitle>
         {globalData.project_setting.headline && (
           <TypographyHeadline content={globalData.project_setting.headline} />
         )}
       </header>
       <section className='relative w-full items-center py-12'>
-        <TypographyTitle>{t('projects.latest')}</TypographyTitle>
+        <TypographyTitle>{t('services.latest')}</TypographyTitle>
         <div className='mt-4 grid gap-6 md:grid-cols-2'>
-          {projectsData.map((project, projectIdx: number) => (
+          {projectsData.map((service, serviceIdx: number) => (
             <Link
-              key={project.id}
-              href={`/projects/${project.slug}`}
+              key={service.id}
+              href={`/services/${service.slug}`}
               className={[
-                isEven(projectIdx)
+                isEven(serviceIdx)
                   ? 'rounded-br-3xl rounded-tl-3xl'
                   : 'rounded-bl-3xl rounded-tr-3xl',
                 'hover:border-accent-focus relative mb-6 block w-full overflow-hidden border-2 border-transparent p-2 transition duration-300',
@@ -62,14 +62,14 @@ export default async function PageRoute({ params }: Props) {
             >
               <div
                 className={[
-                  isEven(projectIdx)
+                  isEven(serviceIdx)
                     ? 'rounded-br-2xl rounded-tl-2xl'
                     : 'rounded-bl-2xl rounded-tr-2xl',
                   'group relative h-56 overflow-hidden',
                 ].join(' ')}
               >
                 <Image
-                  src={getDirectusMedia(project.image) as any}
+                  src={getDirectusMedia(service.image) as any}
                   width={500}
                   height={500}
                   alt=''
@@ -77,12 +77,12 @@ export default async function PageRoute({ params }: Props) {
                 />
                 <div className='absolute inset-0 flex items-center justify-center bg-base-100 bg-opacity-75 opacity-0 transition-opacity duration-300 hover:opacity-100 '>
                   <div className='p-8'>
-                    <TypographyTitle>{project.client}</TypographyTitle>
+                    <TypographyTitle>{service.client}</TypographyTitle>
                     <TypographyHeadline className='text-primary'>
-                      {project.title}
+                      {service.title}
                     </TypographyHeadline>
                     <div className='mt-2 flex flex-auto'>
-                      {project.built_with?.map((item, itemIdx) => (
+                      {service.built_with?.map((item: any, itemIdx: any) => (
                         <div className='mt-2' key={itemIdx}>
                           <div className='badge badge-neutral mb-2 mr-2 items-center  font-serif font-medium'>
                             {item}

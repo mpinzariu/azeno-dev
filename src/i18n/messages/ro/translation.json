@@ -1,0 +1,53 @@
+{
+  "global": {
+    "home_title": "Acasă",
+    "theme": "Temă",
+    "search": {
+      "no": "Fara rezultate",
+      "end": "Sfârșitul rezultatelor",
+      "for_posts": "Căutați articole",
+      "for_help_articles": "Căutați articole de ajutor"
+    },
+    "locale_switcher": {
+      "label": "Limba",
+      "locale": "Engleză"
+    },
+    "lang_redirect": {
+      "heading": "Nu există conținut disponibil în limba dvs.",
+      "note": "Încercați să comutați la altă limbă."
+    },
+    "go_top": "mergi sus"
+  },
+  "projects": {
+    "page_title": "Toate Proiectele",
+    "latest": "Ultimele Proiecte",
+    "build_with": "Construiește Cu",
+    "client": "Client",
+    "cost": "Cost",
+    "gallery": "Galerie"
+  },
+  "services": {
+    "page_title": "Toate Serviciile",
+    "latest": "Cele mai recente servicii",
+    "build_with": "Construiește Cu",
+    "client": "Client",
+    "cost": "Cost",
+    "gallery": "Galerie"
+  },
+  "help": {
+    "page_title": "Documentatii",
+    "article_name": "Documente",
+    "view": "Vedere",
+    "title": "Centrul de documentare",
+    "headline": "<p>Cum putem <em>Ajutor</em> tu?</p>",
+    "all_collections": "Toate documentațiile"
+  },
+  "posts": {
+    "page_title": "Toate Postările",
+    "search": "Căutare",
+    "categories": "Categorii",
+    "featured": "Articol recomandat",
+    "latest": "Cele mai recente și cele mai bune",
+    "category_for": "Articole pentru categoria: "
+  }
+}

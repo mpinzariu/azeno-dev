@@ -100,25 +100,16 @@ async function TheFooter({ lang }: { lang: string }) {
             All rights reserved.
           </span>
           {/* You're free to remove this footer if you want. But we'd appreciate it if you keep the credits. */}
-          <span className='mt-2 font-serif '>
+          <span className='mt-2 font-serif  '>
             <VIcon icon='heroicons:bolt' className='h-4 w-4 text-accent' />
-            Site powered by
+            Site powered by 
             <Link
-              href='https://www.directus.io?ref=agencyos_footer'
+              href='https://azeno.ro'
               target='_blank'
               rel='noopener noreferrer'
-              className=' border-b hover:text-accent'
+              className=' border-b hover:text-accent mx-1'
             >
-              Directus
-            </Link>
-            and
-            <Link
-              href='https://nextjs.org/'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='border-b hover:text-accent'
-            >
-              NextJs
+              Azeno
             </Link>
             .
           </span>
