@@ -1,7 +1,7 @@
 import { readItems } from '@directus/sdk'
 import directusApi from './directus-api'
 
-export { fetchServicesData, fetchProjectData }
+export { fetchServicesData, fetchServiceData }
 export type Data = Awaited<ReturnType<typeof fetchServicesData>>
 
 const fetchServicesData = async ({ locale }: PageContextServer) => {
@@ -10,13 +10,22 @@ const fetchServicesData = async ({ locale }: PageContextServer) => {
       filter: {
         status: { _eq: 'published' },
       },
-      fields: ['*'],
+      deep: {
+        translations: {
+          _filter: {
+            languages_code: {
+              _eq: locale,
+            },
+          },
+        },
+      },      
+      fields: ['*', { translations: ['*'] }],
     })
   )
   return services
 }
 
-const fetchProjectData = async ({ locale, slug }: PageContextServer) => {
+const fetchServiceData = async ({ locale, slug }: PageContextServer) => {
   const services = await directusApi.request(
     readItems('services', {
       filter: { slug: { _eq: slug } },

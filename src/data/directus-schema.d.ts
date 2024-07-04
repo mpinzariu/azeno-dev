@@ -68,6 +68,9 @@ import {
   Projects,
   ProjectsFiles,
   ProjectsSettings,
+  Services,
+  ServicesFiles,
+  ServicesSettings,  
   Redirects,
   Seo,
   Team,
@@ -173,6 +176,9 @@ export interface DirectusSchema {
   projects: Projects[]
   projects_files: ProjectsFiles[]
   projects_settings: ProjectsSettings[]
+  services: Services[]
+  services_files: ServicesFiles[]
+  services_settings: ServicesSettings[]  
   redirects: Redirects[]
   seo: Seo[]
   team: Team[]

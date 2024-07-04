@@ -838,6 +838,44 @@ export interface ProjectsSettings {
   title?: string
 }
 
+export interface Services {
+  built_with?: string[]
+  client?: string
+  content?: string
+  cost?: string
+  date_created?: string
+  date_updated?: string
+  details: string
+  gallery?: ServicesFiles[]
+  id: string
+  image?: string | DirectusFiles
+  seo?: Seo
+  slug?: string
+  sort?: number
+  status: string
+  summary?: string
+  title?: string
+  translations?: ServicesTranslations[]
+  user_created?: string | DirectusUsers
+  user_updated?: string | DirectusUsers
+}
+
+export interface ServicesTranslations {
+  content: string
+  id: number
+  languages_code?: string | Languages
+  Services_id?: string | Services
+  summary?: string
+  title: string
+}
+
+export interface ServicesFiles {
+  directus_files_id?: string | DirectusFiles
+  id: number
+  service?: string | Services
+  sort?: number
+}
+
 export interface ServicesSettings {
   headline?: string
   id: string

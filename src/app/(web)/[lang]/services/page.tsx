@@ -3,7 +3,7 @@ import { readItems } from '@directus/sdk'
 import PageContainer from '@/components/PageContainer'
 import TypographyTitle from '@/components/typography/TypographyTitle'
 import TypographyHeadline from '@/components/typography/TypographyHeadline'
-import { Projects } from '@/data/directus-collections'
+import { Services } from '@/data/directus-collections'
 import { Link } from '@/lib/navigation'
 import { isEven } from '@/lib/utils/math'
 import { getDirectusMedia } from '@/lib/utils/directus-helpers'
@@ -30,7 +30,7 @@ export async function generateMetadata({
 }
 
 export default async function PageRoute({ params }: Props) {
-  const [projectsData, { globalData }] = await Promise.all([
+  const [servicesData, { globalData }] = await Promise.all([
     fetchServicesData({ locale: params.lang }),
     fetchGlobalData({ locale: params.lang }),
   ])
@@ -40,16 +40,16 @@ export default async function PageRoute({ params }: Props) {
     <PageContainer>
       <header className='border-b-2 border-base-300 pb-6 '>
         <TypographyTitle>
-          {globalData.project_setting.title || 'Nextus Services'}
+          {globalData.service_setting.title || 'Nextus Services'}
         </TypographyTitle>
-        {globalData.project_setting.headline && (
-          <TypographyHeadline content={globalData.project_setting.headline} />
+        {globalData.service_setting.headline && (
+          <TypographyHeadline content={globalData.service_setting.headline} />
         )}
       </header>
       <section className='relative w-full items-center py-12'>
         <TypographyTitle>{t('services.latest')}</TypographyTitle>
         <div className='mt-4 grid gap-6 md:grid-cols-2'>
-          {projectsData.map((service, serviceIdx: number) => (
+          {servicesData.map((service, serviceIdx: number) => (
             <Link
               key={service.id}
               href={`/services/${service.slug}`}
