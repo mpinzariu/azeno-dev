@@ -26,6 +26,14 @@
     "cost": "Cost",
     "gallery": "Gallery"
   },
+  "services": {
+    "page_title": "All Services",
+    "latest": "Latest Services",
+    "build_with": "Build With",
+    "client": "Client",
+    "cost": "Cost",
+    "gallery": "Gallery"
+  },  
   "help": {
     "page_title": "Documentations",
     "article_name": "Documents",

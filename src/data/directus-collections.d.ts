@@ -600,6 +600,7 @@ export interface GlobalsTranslations {
   phone?: string
   postal_code?: string
   project_setting: ProjectsSettings
+  service_setting: ServicesSettings
   routes?: unknown
   seo: string
   setting: string
@@ -821,6 +822,13 @@ export interface ProjectsFiles {
 }
 
 export interface ProjectsSettings {
+  headline?: string
+  id: string
+  seo?: Seo
+  title?: string
+}
+
+export interface ServicesSettings {
   headline?: string
   id: string
   seo?: Seo
