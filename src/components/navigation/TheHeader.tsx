@@ -3,6 +3,7 @@ import { fetchGlobalData as fetchData } from '@/data/fetch-globals'
 
 export default async function TheHeader({ lang }: { lang: string }) {
   const data = await fetchData({ locale: lang })
+  // console.log("data: ", data)
 
   return (
     <>

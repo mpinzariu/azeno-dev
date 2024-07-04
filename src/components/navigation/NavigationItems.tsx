@@ -19,6 +19,8 @@ function NavigationChildrenItems({
   items: NavItems[]
   detail?: boolean
 }) {
+  console.log("items: ", items[0])
+
   return (
     <>
       {items.map((childItem, index) => (
