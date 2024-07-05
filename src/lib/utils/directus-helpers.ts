@@ -20,7 +20,8 @@ export function getDirectusMedia(
   }
 
   // Otherwise prepend the URL path with the Strapi URL
-  return `${getDirectusURL()}/assets/${url}`
+  // return `${getDirectusURL()}/assets/${url}`
+  return `${getDirectusURL()}/assets/${localUrl}`
 }
 
 export function getStrapiURL(path = '') {

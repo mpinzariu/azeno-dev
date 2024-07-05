@@ -575,6 +575,7 @@ export interface Forms {
 
 export interface Globals {
   favicon?: DirectusFiles
+  logo?: DirectusFiles
   id: string
   translations: GlobalsTranslations[]
   url?: string

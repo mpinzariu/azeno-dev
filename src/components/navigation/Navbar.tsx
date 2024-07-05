@@ -7,6 +7,7 @@ import NavigationItems from '@/components/navigation/NavigationItems'
 import { getTranslations } from '@/i18n/i18n'
 import LocaleSwitcher from '@/components/global/LocaleSwitcher'
 import { ComponentProps } from 'react'
+import VImage from '../base/VImage'
 
 type NavLinkProps = {
   id: number
@@ -38,11 +39,16 @@ type NavBarProps = {
 
 export default async function Navbar({
   buttons,
+  logoUrl,
+  logoText,  
   title,
   navigation,
   locale: lang,
 }: NavBarProps) {
   const { t } = await getTranslations({ locale: lang })
+
+  console.log("logoUrl: ", logoUrl)
+  console.log("title: ", title)
 
   return (
     <header>
@@ -64,6 +70,11 @@ export default async function Navbar({
               />
             )}
           </div>
+          
+          {logoUrl && (
+            <VImage src={logoUrl} alt={''} width={100} height={32} />
+          )}
+
           <Link href='/' className='btn btn-ghost text-xl normal-case'>
             {title}
           </Link>

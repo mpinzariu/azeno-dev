@@ -83,6 +83,7 @@ const fetchGlobals = async function name(lang: string) {
         },
         fields: [
           '*',
+          { logo: ['*'] },
           {
             translations: [
               '*',
