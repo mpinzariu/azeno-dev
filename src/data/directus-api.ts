@@ -382,6 +382,8 @@ async function fetchPage(slug: string, lang: string) {
                     block_cardgroup: [
                       '*',
                       { posts: [{ posts_id: ['*', { translations: ['*'] }] }] },
+                      { projects: [{ projects_id: ['*', { translations: ['*'] }] }] },
+                      { services: [{ services_id: ['*', { translations: ['*'] }] }] },
                     ],
                     block_html: ['*'],
                     block_video: ['*'],

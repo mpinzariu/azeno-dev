@@ -7,6 +7,8 @@ export interface BlockCardgroup {
   headline?: string
   id: string
   posts?: BlockCardgroupPosts[]
+  projects?: BlockCardgroupProjects[]
+  services?: BlockCardgroupServices[]
   title?: string
 }
 
@@ -24,6 +26,18 @@ export interface BlockCardgroupPosts {
   block_cardgroup_id?: string | BlockCardgroup
   id: number
   posts_id?: string | Posts
+}
+
+export interface BlockCardgroupProjects {
+  block_cardgroup_id?: string | BlockCardgroup
+  id: number
+  projects_id?: string | Projects
+}
+
+export interface BlockCardgroupServices {
+  block_cardgroup_id?: string | BlockCardgroup
+  id: number
+  services_id?: string | Services
 }
 
 export interface BlockColumns {
@@ -795,6 +809,8 @@ export interface PostsTranslations {
 }
 
 export interface Projects {
+  author?: string | DirectusUsers
+  category?: Categories
   built_with?: string[]
   client?: string
   // content?: string

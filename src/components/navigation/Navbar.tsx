@@ -53,7 +53,7 @@ export default async function Navbar({
   return (
     <header>
       <div className='navbar mx-auto max-w-7xl bg-base-100'>
-        <div className='navbar-start'>
+        <div className='navbar-start container'>
           <div className='dropdown'>
             <label tabIndex={0} className='btn btn-ghost lg:hidden'>
               <VIcon
