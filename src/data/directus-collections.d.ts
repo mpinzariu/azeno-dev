@@ -856,6 +856,8 @@ export interface ProjectsSettings {
 }
 
 export interface Services {
+  author?: string | DirectusUsers
+  category?: Categories  
   built_with?: string[]
   client?: string
   content?: string

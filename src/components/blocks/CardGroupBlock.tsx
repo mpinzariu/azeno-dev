@@ -4,6 +4,7 @@ import TypographyTitle from '@/components/typography/TypographyTitle'
 import TypographyHeadline from '@/components/typography/TypographyHeadline'
 import PostCard from '@/components/PostCard'
 import ProjectCard from '../ProjectCard'
+import ServiceCard from '../ServiceCard'
 
 export interface CardGroup {
   id: string
@@ -27,7 +28,7 @@ interface CardGroupBlockProps {
 }
 
 function CardGroupBlock({ data }: CardGroupBlockProps) {
-  console.log("data: ", data.projects[0].projects_id)
+  console.log("data: ", data)
   return (
     <BlockContainer>
       {data.title && <TypographyTitle>{data.title}</TypographyTitle>}
@@ -38,7 +39,10 @@ function CardGroupBlock({ data }: CardGroupBlockProps) {
         ))}
         {data.group_type == 'projects' && data.projects.map((item, itemIdx) => (          
             <ProjectCard key={itemIdx} project={item.projects_id} />  
-        ))}        
+        ))}   
+        {data.group_type == 'services' && data.services.map((item, itemIdx) => (          
+            <ServiceCard key={itemIdx} service={item.services_id} />  
+        ))}                
       </div>
     </BlockContainer>
   )

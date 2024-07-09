@@ -1,4 +1,4 @@
-import { DirectusUsers, Projects } from '@/data/directus-collections'
+import { DirectusUsers, Services } from '@/data/directus-collections'
 import { Link } from '@/lib/navigation'
 import Image from 'next/image'
 
@@ -8,18 +8,20 @@ import { truncateString } from '@/lib/utils/strings'
 import { isObject } from '@/lib/utils/objects'
 import VAvatar from '@/components/base/VAvatar'
 
-interface ProjectCardProps {
-  project: Projects
+interface serviceCardProps {
+  service: Services
   className?: string
   even?: boolean
 }
 
-function ProjectCard({ project, even, className }: ProjectCardProps) {
-  if (!project.translations || project.translations.length === 0) return null
+function serviceCard({ service, even, className }: serviceCardProps) {
+  console.log("service: ", service)
+
+  if (!service.translations || service.translations.length === 0) return null
 
   return (
     <figure className={`group flex flex-col ${className}`}>
-      <Link href={`/projects/${project.slug}`}>
+      <Link href={`/services/${service.slug}`}>
         <div
           className={[
             even
@@ -40,45 +42,45 @@ function ProjectCard({ project, even, className }: ProjectCardProps) {
               className='h-full w-full object-cover transition-opacity duration-300 hover:opacity-75'
               width={500}
               height={500}
-              src={getDirectusMedia(project.image)}
+              src={getDirectusMedia(service.image)}
               alt=''
             />
             <div className='absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100' />
-            {project.category && (
+            {service.category && (
               <VBadge
                 size='lg'
-                color={project.category?.color ?? ''}
+                color={service.category?.color ?? ''}
                 className={[
                   even ? 'rounded-br-lg' : 'rounded-bl-lg',
                   'absolute bottom-0 left-0 mb-4 ml-4',
                 ].join(' ')}
               >
-                {project.category.title}
+                {service.category.title}
               </VBadge>
             )}
           </div>
         </div>
       </Link>
 
-      <Link className='h-full' href={`/projects/${project.slug}`}>
+      <Link className='h-full' href={`/services/${service.slug}`}>
         {/* Icon */}
         <p className='mt-5 font-serif text-xl font-semibold group-hover:text-accent'>
-          {project.translations[0].title}
+          {service.translations[0].title}
         </p>
         <p className='mt-3 font-mono text-sm '>
-          {truncateString(project.translations[0].summary ?? '', 150)}
+          {truncateString(service.translations[0].summary ?? '', 150)}
         </p>
       </Link>
 
-      {isObject(project.user_created) && (
+      {isObject(service.user_created) && (
         <VAvatar
           className='mt-4'
           size='sm'
-          author={project.user_created as DirectusUsers}
+          author={service.user_created as DirectusUsers}
         />
       )}
     </figure>
   )
 }
 
-export default ProjectCard
+export default serviceCard
